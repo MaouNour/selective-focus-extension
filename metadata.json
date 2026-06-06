@@ -1,0 +1,8 @@
+{
+  "name": "Selective Focus",
+  "description": "Force focus only for specific apps on Wayland",
+  "uuid": "selective-focus@maou-nournar",
+  "shell-version": ["48","49","50"],
+  "settings-schema": "org.gnome.shell.extensions.selective-focus",
+  "version": 1
+}

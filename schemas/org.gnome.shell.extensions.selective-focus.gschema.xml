@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+
+  <schema
+      id="org.gnome.shell.extensions.selective-focus"
+      path="/org/gnome/shell/extensions/selective-focus/">
+
+    <key name="allowed-apps" type="as">
+      <default>['com.gexperts.Tilix.desktop']</default>
+      <summary>Applications allowed to steal focus</summary>
+    </key>
+
+  </schema>
+
+</schemalist>
