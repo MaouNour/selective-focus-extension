@@ -4,5 +4,10 @@
   "uuid": "selective-focus@maou-nournar",
   "shell-version": ["48","49","50"],
   "settings-schema": "org.gnome.shell.extensions.selective-focus",
-  "version": 1
+  "url": "https://github.com/MaouNour/selective-focus-extension",
+  "donations": {
+    "github": "MaouNour",
+    "buymeacoffee": "maounournar"
+},
+  "version": 2
 }

@@ -6,35 +6,32 @@ export default class SelectiveFocusExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._windowTracker = Shell.WindowTracker.get_default();
+	global.display.connectObject(
+    'window-demands-attention',
+    (display, window) => {
+        const app = this._windowTracker.get_window_app(window);
 
-        this._handlerId = global.display.connect(
-            'window-demands-attention',
-            (display, window) => {
-                const app = this._windowTracker.get_window_app(window);
+        if (!app)
+            return;
 
-                if (!app)
-                    return;
+        const appId = (app.get_id() || '').toLowerCase();
 
-                const appId = (app.get_id() || '').toLowerCase();
+        console.log(`[SelectiveFocus] Focus request from ${appId}`);
 
-                console.log(`[SelectiveFocus] Focus request from ${appId}`);
+        const allowedApps = this._settings
+            .get_strv('allowed-apps')
+            .map(id => id.toLowerCase());
 
-                const allowedApps = this._settings
-                    .get_strv('allowed-apps')
-                    .map(id => id.toLowerCase());
-
-                if (allowedApps.includes(appId))
-                    Main.activateWindow(window);
-            }
-        );
-    }
-
-    disable() {
-        if (this._handlerId) {
-            global.display.disconnect(this._handlerId);
-            this._handlerId = null;
+        if (allowedApps.includes(appId))
+            Main.activateWindow(window);
+    },
+    this
+);
         }
 
-        this._settings = null;
-    }
+    disable() {
+	global.display.disconnectObject(this);
+    	this._settings = null;
+    	this._windowTracker = null;
+          }
 }
