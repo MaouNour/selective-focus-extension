@@ -2,12 +2,13 @@
   "name": "Selective Focus",
   "description": "Force focus only for specific apps on Wayland",
   "uuid": "selective-focus@maou-nournar",
-  "shell-version": ["48","49","50"],
+  "shell-version": ["48", "49", "50"],
   "settings-schema": "org.gnome.shell.extensions.selective-focus",
   "url": "https://github.com/MaouNour/selective-focus-extension",
   "donations": {
     "github": "MaouNour",
-    "buymeacoffee": "maounournar"
-},
+    "buymeacoffee": "maounournar",
+    "custom": ["https://app.paymento.io/payment-link/8240031082a34883be8866108e71eec0"]
+  },
   "version": 2
 }
